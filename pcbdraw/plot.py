@@ -1234,7 +1234,7 @@ class PcbPlotter():
             popt.SetTextMode(pcbnew.PLOT_TEXT_MODE_STROKE)
             if LEGACY_KICAD5:
                 pass
-            if LEGACY_KICAD6:
+            elif LEGACY_KICAD6:
                 popt.SetSvgPrecision(self.svg_precision, False)
             else:
                 popt.SetSvgPrecision(self.svg_precision)
@@ -1367,4 +1367,3 @@ class PcbPlotter():
         self._board_cont.attrib["id"] = "boardContainer"
         self._comp_cont.attrib["id"] = "componentContainer"
         self._high_cont.attrib["id"] = "highlightContainer"
-
