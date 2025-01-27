@@ -113,7 +113,7 @@ class SvgPathItem:
         dx = p1[0] - p2[0]
         dy = p1[1] - p2[1]
         pseudo_distance = dx*dx + dy*dy
-        if LEGACY_KICAD6():
+        if LEGACY_KICAD6:
             return pseudo_distance < 100 ** 2
         return pseudo_distance < 0.01 ** 2
 
@@ -1046,10 +1046,10 @@ class PcbPlotter():
 
         self.yield_warning: Callable[[str, str], None] = lambda tag, msg: None # Handle warnings
 
-        if LEGACY_KICAD5():
+        if LEGACY_KICAD5:
             self.ki2svg = self._ki2svg_v5
             self.svg2ki = self._svg2ki_v5
-        elif LEGACY_KICAD6():
+        elif LEGACY_KICAD6:
             self.ki2svg = self._ki2svg_v6
             self.svg2ki = self._svg2ki_v6
         else:
